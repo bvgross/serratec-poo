@@ -21,6 +21,18 @@ public class Conta {
     public void setTitular(String titular) {
     	this.titular = titular;
     }
+    
+    public String getAgencia() {
+    	return agencia;
+    } 
+     
+    public String getConta() {
+    	return conta;
+    }
+
+    public double getSaldo() {
+    	return saldo;
+    }
 
     public void exibirDados() {
         System.out.println("Agência: " + agencia);
