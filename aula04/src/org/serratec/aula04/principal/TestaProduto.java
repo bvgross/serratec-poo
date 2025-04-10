@@ -10,22 +10,24 @@ public class TestaProduto {
 		Scanner sc = new Scanner(System.in);
 		
 		String resposta = "S";
-		while (resposta == "S") {
-			String nome = "";
-			double valor = 0;
-			int quantidade = 0;
-			
+
+		do {
 			System.out.println("Nome do produto: ");
-			nome = sc.nextLine();
+			String nome = sc.nextLine();
 			System.out.println("Valor: ");
-			valor = sc.nextDouble();
+			double valor = sc.nextDouble();
 			System.out.println("Quantidade: ");
-			quantidade = sc.nextInt();
+			int quantidade = sc.nextInt();
 			sc.nextLine();
 			Produto produto = new Produto(nome, valor, quantidade);
+			
+			//System.out.println("Produto cadastrado!");
+			produto.mostrarProduto();
+			
 			System.out.println("Deseja fazer um novo cadastro (S/N)?");
 			resposta = sc.nextLine();
-		}
+		} while (resposta.equalsIgnoreCase("S"));
+		//} while (resposta == "S" || resposta == "s");
 	}
 
 }

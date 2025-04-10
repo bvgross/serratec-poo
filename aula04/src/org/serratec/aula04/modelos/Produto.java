@@ -4,6 +4,8 @@ public class Produto {
 	private String descricao;
 	private double valor;
 	private int quantidade;
+	private double total;
+	private double icms;
 	
 		
 	public Produto(String descricao, double valor, int quantidade) {
@@ -11,6 +13,8 @@ public class Produto {
 		this.descricao = descricao;
 		this.valor = valor;
 		this.quantidade = quantidade;
+		this.total = calcularTotal(valor, quantidade);
+		this.icms = calcularIcms(valor, quantidade);
 	}
 	
 	// getters e setters
@@ -33,9 +37,29 @@ public class Produto {
 		this.quantidade = quantidade;
 	}
 	
-	public double calcularIcms(double valor) {
-		double icms = valor * 0.12;
+	public double getIcms() {
 		return icms;
 	}
 	
+	public double getTotal() {
+		return total;
+	}
+
+	public double calcularTotal(double valor, int quantidade) {
+		return valor * quantidade;
+	}
+
+	public double calcularIcms(double valor, int quantidade) {
+		return calcularTotal(valor, quantidade) * 0.12;
+	}
+	
+	public void mostrarProduto() {
+		System.out.println("------------------------------");
+		System.out.println("Descrição: " + getDescricao());
+		System.out.println("Valor: " + getValor());
+		System.out.println("Quantidade: " + getQuantidade());
+		System.out.println("Total: " + getTotal());
+		System.out.println("IMCS total: " + getIcms());
+		System.out.println("------------------------------");
+	}
 }
