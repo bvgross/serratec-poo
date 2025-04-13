@@ -11,11 +11,11 @@ public class TestaFuncionario {
 		Funcionario diretor = new Diretor("Bruno Ventura Gross", 25000);
 		Funcionario gerente = new Gerente("Erika Ventura Gross", 12000);
 		Funcionario assistente = new Assistente("Joãozinho", 5000, 300);
-		
+
 		diretor.aumentarSalario();
 		gerente.aumentarSalario();
 		assistente.aumentarSalario();
-		
+
 		System.out.println(diretor);
 		System.out.println(gerente);
 		System.out.println(assistente);

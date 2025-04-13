@@ -10,5 +10,8 @@ public class TestaAnimal {
 	public static void main(String[] args) {
 		Animal galinha = new AnimalEstimacao("Galinhazinha", LocalDate.parse("2025-08-29"));
 		Animal onca = new AnimalExtinsao("Pintadinha", "22488-2");
+		
+		System.out.println(galinha);
+		System.out.println(onca);
 	}
 }
