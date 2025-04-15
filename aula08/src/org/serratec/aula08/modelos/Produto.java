@@ -23,6 +23,10 @@ public abstract class Produto {
         return estoque;
     }
 
+    public void acrescentarEstoque(int adicao) {
+        this.estoque += adicao;
+    }
+
     public abstract void exibirInformacoes();
 
     public boolean vender(int quantidade) {

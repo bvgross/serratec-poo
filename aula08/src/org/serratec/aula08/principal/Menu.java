@@ -19,7 +19,8 @@ public class Menu {
                     1. Cadastrar produto
                     2. Listar produto
                     3. Realzar venda
-                    4. Sair                    
+                    4. Aumentar estoque
+                    5. Sair                    
                     \nEscolha uma opção:
                     """;
             System.out.println(menu);
@@ -30,15 +31,19 @@ public class Menu {
                 case 1 -> cadastrarProduto();                
                 case 2 -> listarProdutos();
                 case 3 -> realizarVenda();
-                case 4 -> System.out.println("Encerrando a aplicação...");
+                case 4 -> aumentarEstoque();
+                case 5 -> System.out.println("Encerrando a aplicação...");
                 default -> System.out.println("Opção inválida!");
             }
-        } while (opcao != 4);
+        } while (opcao != 5);
 
     }
 
     private void realizarVenda() {
         listarProdutos();
+        if (produtos.isEmpty()) {
+            return;
+        }
         System.out.println("\nEscolha o número do produto que à vender: ");
         int indice = leitura.nextInt() - 1;
         if (indice < 0 || indice > produtos.size()) {
@@ -55,6 +60,10 @@ public class Menu {
     }
 
     private void listarProdutos() {
+        if (produtos.isEmpty()) {
+            System.out.println("---- Não existem produtos cadastrados. ----");
+            return;
+        }
         for (int i = 0; i < produtos.size(); i++) {
             System.out.print((i + 1) + ". ");
             produtos.get(i).exibirInformacoes();
@@ -68,6 +77,11 @@ public class Menu {
         System.out.println("Escolha a opção desejada: ");
         int tipo = leitura.nextInt();
         leitura.nextLine();
+        
+        if (tipo != 1 && tipo != 2) {
+            System.out.println("Opção inválida. Voltando ao menu anterior...");
+            return;
+        }
 
         System.out.println("\nNome do produto: ");
         String nome = leitura.nextLine();
@@ -98,4 +112,19 @@ public class Menu {
         System.out.println("Produto cadastrado com sucesso.");
     }
 
+    private void aumentarEstoque() {
+        listarProdutos();
+        if (produtos.isEmpty()) {
+            return;
+        }
+        System.out.println("\nProduto: ");
+        int indice = leitura.nextInt() - 1;
+        if (indice < 0 || indice > produtos.size()) {
+            System.out.println("Produto inválido.");
+            return;
+        }
+        System.out.println("Adicionar quantos items: ");
+        produtos.get(indice).acrescentarEstoque(leitura.nextInt());
+        leitura.nextLine();
+    }
 }
