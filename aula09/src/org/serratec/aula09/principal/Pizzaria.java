@@ -15,7 +15,7 @@ public class Pizzaria {
                 2. Listar Pizza
                 3. Sair                
                     """);
-            
+            };
             System.out.println("Selecione a opção: ");
             opcao = sc.nextInt();  
             

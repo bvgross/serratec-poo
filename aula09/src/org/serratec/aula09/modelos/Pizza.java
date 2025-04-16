@@ -51,7 +51,7 @@ public class Pizza {
         Tipo tipo = Tipo.valueOf(tipoPizza);
         System.out.println("Descrição: ");
         String descricao = sc.nextLine();
-        cardapio.add(new Pizza(nome, preco, tipo, descricao));      
+        cardapio.add(new Pizza(nome, preco, tipo, descricao));
     }
 
     public static void listarPizza(List<Pizza> cardapio) {
