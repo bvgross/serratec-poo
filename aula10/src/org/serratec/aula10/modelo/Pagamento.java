@@ -29,7 +29,6 @@ public abstract class Pagamento {
         }
         return 0;
     }
-
     public final double calcularMultaEAtraso() {
         double valorMulta = valor / 100 * PERCENTUAL_MULTA;
         long diasAtraso = calcularDiasEmAtraso();

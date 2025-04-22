@@ -23,5 +23,6 @@ public class Main {
         for (int i = 0; i < origemPagamento.size(); i++) {
             origemPagamento.get(i).informarOrigemPagamento(TipoOrigem.CONTA_CORRENTE);
         }
+
     }
 }
